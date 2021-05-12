@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .jdlb{
+            width: 1000px;
+            height: 350px;
+            margin: 100px 200px;
+        }
+        h2{
+            text-align: center;
+            width: 100px;
+            margin: 10px 300px;
+        }
+        span{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="jdlb">
+        <div id="focuspic1">
+            <img src="images/5.22/img1.jpg" width="780px" height="269px"/>
+            <h2>风景图1</h2>
+            <div class="shoudong">
+                <span onclick="setfocus(2)">点击该文字自动切换焦点图</span>
+                <strong>1</strong>
+                <a href="javascript:setfocus(2)">2</a>
+                <a href="javascript:setfocus(3)">3</a>
+            </div>
+        </div>
+        <div id="focuspic2" style="display: none;">
+            <img src="images/5.22/img2.jpg" width="780px" height="269px"/>
+            <h2>风景图1</h2>
+            <div class="shoudong">
+                <span onclick="setfocus(3)">点击该文字自动切换焦点图</span>
+                <strong>1</strong>
+                <a href="javascript:setfocus(1)">1</a>
+                <a href="javascript:setfocus(3)">3</a>
+            </div>
+        </div>
+        <div id="focuspic3" style="display: none;">
+            <img src="images/5.22/img3.jpg" width="780px" height="269px"/>
+            <h2>风景图1</h2>
+            <div class="shoudong">
+                <span onclick="setfocus(1)">点击该文字自动切换焦点图</span>
+                <strong>1</strong>
+                <a href="javascript:setfocus(1)">1</a>
+                <a href="javascript:setfocus(2)">2</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

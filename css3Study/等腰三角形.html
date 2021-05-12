@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        canvas{
+            border: 1px solid #000;
+            background-color: #FFC;
+        }	
+    </style>
+    <script language="javascript" type="text/javascript">
+    function draw(id){
+        //绘制直线的第一步：获得canvas元素=创建画纸
+        var paper=document.getElementById(id);
+        //绘制直线的第二步：获得上下文环境=创建画笔
+        var pen=paper.getContext('2d');
+        //绘制直线的第三步：定义画笔的样式，包括画笔的粗细或者颜色等
+        pen.lineWidth=4;
+        pen.strokeStyle="green";
+        pen.fillStyle="blue";
+        //绘制直线的第四步：首先创建开始路径、然后绘制直线路径，再是关闭路径、最后使用绘图函数绘制直线
+        pen.beginPath();
+        pen.moveTo(100,200);
+        pen.lineTo(150,100);
+        pen.lineTo(200,200);
+        pen.closePath();
+        pen.fill();
+        pen.stroke();
+    }
+    </script>
+</head>
+<body onLoad="draw('AAA');">
+    <canvas id="AAA" width="500" height="500"> </canvas>
+</body>
+</html>

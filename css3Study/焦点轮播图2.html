@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>焦点图切换方法二:使用周期定时器setInterval ()方法来实现</title>
+<style>
+    *{
+	margin:0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+}
+.banner{
+	width:780px;
+	height: 285px;
+	margin: 13px auto 15px auto;
+	position: relative;
+	overflow: hidden;
+}
+.banner .banner_pic .pic{
+	display:none;
+}
+.banner .banner_pic .current{
+	display:block;
+}
+.banner ol{
+	position:absolute;
+	left: 50%;
+	bottom:6%;
+	margin-left: -30px;
+}
+.banner ol .but{
+	float:left;
+	width:10px;
+	height: 10px;
+	border: 1px solid #2fafbc;
+	border-radius: 50%;
+	margin-right: 12px;
+	text-align: center;
+	line-height: 22px;
+	background: #fff;
+	color: #2fafbc;
+	font-size: 16px;
+	font-weight: bold;
+	opacity: 0.5;
+}
+.banner ol li{
+	cursor:pointer;
+}
+.banner ol .current{
+	color:#fff;
+	background: #2fafbc;
+	float:left;
+	width: 10px;
+	height: 10px;
+	border: 1px solid #2fafbc;
+	border-radius: 50%;
+	margin-right: 12px;
+	text-align: center;
+	line-height: 22px;
+	font-size: 16px;
+	font-weight: bold;
+}
+</style>
+<script>
+    window.onload=function(){
+	/*保存当前焦点元素的索引*/
+	var current_index=0;
+	/*5000表示调用周期，以毫秒为单位，5000毫秒就是5秒*/
+	var timer=window.setInterval(autoChange,3000);
+	/*获取所有轮播图按钮*/
+	var button_li=document.getElementById("button").getElementsByTagName("li");
+	/*获取所有banner图*/
+	var pic_div=document.getElementById("banner_pic").getElementsByTagName("div");
+	/*遍历元素*/
+	for(var i=0;i<button_li.length;i++){
+		/*添加鼠标滑过事件*/
+		button_li[i].onmouseover=function(){
+			/*定时器存在时清除定时器*/
+			if(timer){
+				clearInterval(timer); 
+			}
+			/*遍历元素*/
+			for(var j=0;j<pic_div.length;j++){
+				/*将当前索引对应的元素设为显示*/
+				if(button_li[j]==this){
+					current_index=j;  /*从当前索引位置开始*/
+					button_li[j].className="current";
+					pic_div[j].className="current";
+				}else{
+					/*将所有元素改变样式*/
+					pic_div[j].className="pic";
+					button_li[j].className="but";
+				}
+			}
+		}
+		/*鼠标移出事件*/
+		button_li[i].onmouseout=function(){
+			/*启动定时器，回复自动切换*/
+			timer=setInterval(autoChange,5000);
+		}
+	}
+	function autoChange(){
+		/*自增索引*/
+		++current_index;
+		/*当索引自增达到上限时，索引归0*/
+		if(current_index==button_li.length){
+			current_index=0;
+		}
+		for(var i=0;i<button_li.length;i++){
+			if(i==current_index){
+				button_li[i].className="current";
+				pic_div[i].className="current";
+			}else{
+				button_li[i].className="but";
+				pic_div[i].className="pic";
+			}
+		}
+	}
+}
+</script>
+</head>
+<!--焦点图切换方法二:使用周期定时器setInterval ()方法来实现-->
+<!--HTML结构代码部分-->
+<body>
+<div class="banner">
+	<div class="banner_pic" id="banner_pic">
+		<div class="current"><img src="images/5.22/img1.jpg" width="780px" height="269px" alt=""></div>
+		<div class="pic"><img src="images/5.22/img2.jpg" width="780px" height="269px" alt=""></div>
+		<div class="pic"><img src="images/5.22/img3.jpg" width="780px" height="269px" alt=""></div>
+		<div class="pic"><img src="images/5.22/img4.jpg" width="780px" height="269px" alt=""></div>
+	</div>
+	<ol id="button">
+		<li class="current"></li>
+		<li class="but"></li>
+		<li class="but"></li>
+		<li class="but"></li>
+	</ol>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>传智宣传栏切换</title>
+	<style type="text/css">
+	/*清除默认样式*/
+	*{margin: 0;padding:0; list-style: none;}
+	/*全局控制*/
+	body{font-family: "微软雅黑";font-weight: bold;font-size:16px;color:#444;}
+	.box{
+		width:600px;
+		height:285px;
+		border:1px solid #ccc;
+		margin: 100px auto;
+	}
+	.banner{
+		width:422px;
+		height:285px;
+		float:left;        /* 定义左侧的盒子左浮动 */
+	}
+	.banner .current{
+		display: block;
+	}
+	.banner .pic{
+		display: none;
+	}
+	#but{
+		float: left;
+	}
+	#but li{
+		width:175px;
+		height:93px;
+		background: #ddd;
+		border:1px solid #ccc;
+		text-align: center;
+		line-height: 93px;
+	}
+	#but .cur{
+		background: #3275D0;
+		color: #fff;
+	}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var but_li=document.getElementById("but").getElementsByTagName("li");
+		var banner_div=document.getElementById("banner").getElementsByTagName("div");
+		for(i=0;i<but_li.length;i++){
+			but_li[i].onmouseover=function(){
+				for(j=0;j<banner_div.length;j++){
+					if(but_li[j]==this){
+						but_li[j].className="cur";
+						banner_div[j].className="current";
+					}else{
+						but_li[j].className="";
+						banner_div[j].className="pic";
+					}
+				}
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div class="box">
+		<div class="banner" id="banner">
+			<div class="current"><img src="images/p1.jpg" alt="" /></div>
+			<div class="pic"><img src="images/p2.jpg" alt="" /></div>
+			<div class="pic"><img src="images/p3.jpg" alt="" /></div>
+		</div>
+		<ul id="but">
+			<li class="cur">电商运营师的晋升之路</li>
+			<li>网路营销课程重磅升级</li>
+			<li>郑州分校</li>
+		</ul>
+	</div>
+</body>
+</html>

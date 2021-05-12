@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4号杜英杰</title>
+    <style>
+        * {
+            list-style: none;
+            text-decoration: none;
+            color: white;
+            padding: 0;
+        }
+	    ul,li {
+            background-color:rgb(60, 91, 175);
+            border: 1px solid gray;
+        }
+	    .inCss {
+            display: none;
+            top: 40px;
+            text-align: center;
+        }
+	    .cssLi:hover .inCss {
+            display: block;
+            position: absolute;
+            left: 130px;
+        }
+	    .cssLi a:hover {
+            color: red;
+        }
+	    #one {
+            width: 120px;
+            height: 120px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul id="one">
+            <li><a href="#">HTML</a></li>
+            <li class="cssLi" ><a href="#">CSS</a>
+            <ul class="inCss" >
+                <li><a href="#">Selector</a></li>
+                <li><a href="#">Use CSS File in HTML</a></li>
+                <li><a href="#">Formatting Document</a></li>
+                <li><a href="#">Layout</a></li>
+            </ul>
+            </li>
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">XML</a></li>
+            <li><a href="#">PHP</a></li>
+            <li><a href="#">Ajax</a></li>
+        </ul>
+    </div>    
+</body>
+</html>

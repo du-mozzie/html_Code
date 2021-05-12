@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>4号杜英杰</title>
+    <script type="text/javascript">
+        function draw() {
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+            context.fillStyle = "black";
+            context.fillRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i <= 200; i++) {
+                var r = Math.random() * 10 + 10;
+                var x = Math.random() * canvas.width;
+                var y = Math.random() * canvas.height;
+                var a = Math.random() * 360;
+                drawStar(context, x, y, r, r / 2.3, a)
+            }
+        }
+        function drawStar(cxt, x, y, r, R, rot) {
+            cxt.beginPath();
+            for (var i = 0; i < 5; i++) {
+                cxt.lineTo(Math.cos((18 + i * 72 - rot) / 180 * Math.PI) * R + x, -Math.sin((18 + i * 72 - rot) / 180 * Math.PI) * R + y);
+                cxt.lineTo(Math.cos((54 + i * 72 - rot) / 180 * Math.PI) * r + x, -Math.sin((54 + i * 72 - rot) / 180 * Math.PI) * r + y);
+            }
+            cxt.fillStyle = "cyan"
+            cxt.closePath();
+            cxt.fill();
+        }
+    </script>
+</head>
+
+<body onload="draw()" ;>
+    <canvas id="canvas" width="800" height="400">
+        你的浏览器不支持Canvas
+    </canvas>
+</body>
+
+</html>

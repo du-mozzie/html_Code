@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>绘画板</title>
+</head>
+
+<body>
+    <center>
+        <canvas id="cavsElem">
+            你的浏览器不支持canvas，请升级浏览器
+        </canvas><br>
+        选择画笔颜色：<input type="color" value="#ff0000" id="mycolor" onchange=colorChange() />
+        <input type="button" value="清除" id="clear" onclick=clearAll()>
+        选择画笔粗细：<input type="number" id="gsize" value="1" min="1" onchange=sizeChange()>
+    </center>
+    <script>
+
+        var canvas = document.getElementById('cavsElem');
+
+        var context = canvas.getContext('2d');
+        //设置标签的宽高和边框
+        canvas.width = 900;
+        canvas.height = 600;
+        context.strokeStyle = document.getElementById("mycolor").value; //设置描边颜色
+        canvas.style.border = "1px solid #000";
+        //当鼠标按下触发onmousedown事件时，定义一个函数获取鼠标起始坐标
+        canvas.onmousedown = function (e) {
+            var x = e.clientX - canvas.getBoundingClientRect().left;
+            var y = e.clientY - canvas.getBoundingClientRect().top;
+            context.beginPath(); //开始规划路径
+            context.moveTo(x, y); //移动起始点
+            //当鼠标移动触发onmousemove事件时,定义一个函数获取绘制线条的坐标
+            canvas.onmousemove = function (event) {
+                var x = event.clientX - canvas.getBoundingClientRect().left;
+                var y = event.clientY - canvas.getBoundingClientRect().top;
+                // canvas.clearRect(0, 0, 900, 600);
+                context.lineTo(x, y); //绘制线条
+                context.stroke(); //绘制描边
+            };
+            //当鼠标按键被松开时，onmousemovet函数返回null
+            canvas.onmouseup = function (event) {
+                canvas.onmousemove = null;
+            };
+        };
+        /* 清除画布 */
+        function clearAll() {
+            //清除矩形
+            context.clearRect(0, 0, 900, 600);
+        }
+        /* 颜色选择 */
+        function colorChange() {
+            var mycolor = document.getElementById("mycolor");
+            var x = mycolor.value;
+            // console.log('x :', x);
+            context.strokeStyle = x; //设置描边颜色
+        }
+        /* 画笔粗细 */
+        function sizeChange() {
+            var mycolor = document.getElementById("gsize");
+            var x = mycolor.value;
+            context.lineWidth = x; //设置线的粗细
+        }
+    </script>
+</body>
+
+</html>
