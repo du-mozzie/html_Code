@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            BOM:browser object model 浏览器对象模型
+        */
+
+        /* 
+            系统对话框
+                window 方法
+                alert() 弹出警告框
+                confirm() 弹出一个带确定和取消的提示框
+                    如果点击确定，返回true
+                    如果点击取消返回false
+                prompt() 弹出一个带输入框的提示框
+                    参数：
+                        一、面板上显示的内容
+                        二、输入框里面的默认值(可以不传入)
+                    返回值：点击确定，返回输入框的内容
+                            点击取消，返回null
+        */
+
+
+
+        // alert("hello");
+        // window.alert("world");
+
+        /* 
+            open()
+                第一个参数：跳转的url   打开一个新窗口，加载url
+                第二个参数：字符串，给打开的窗口起一个名字
+                第三个参数：一串特殊含义的字符串，控制打开窗口的属性
+                function butClick() {
+            open("http://www.baidu.com","xxx","width=400,height=400,top=200,left=200");
+        }
+
+        */
+
+        /* 
+            history 对象    window.history  当前窗口(注意不是浏览器)历史记录(只要加载的url不一样就会产生历史记录)
+            属性
+                history.length  输出当前窗口历史记录的条数
+            方法
+                history.back()  返回上一条历史记录
+                history.forward()   前进到下一条历史记录
+                history.go()
+                    参数：  0   刷新当前页面
+                            正整数  前进n条记录
+                            负整数  后退n条记录
+         */
+
+        /* 
+            location
+
+            url:统一资源定位符
+
+            协议：//IP(域名)/:端口号/路径/?查询字符串#锚点
+            英文版本：protocol://hostname:port/pathname/?search#hash
+
+            协议：location.protocol;    file：本地的磁盘文件访问
+                                        http：
+                                        https：(证书认证协议)
+
+            主机名：location.hostname;  IP(在全球范围内找到你当前网络的地址)
+                    域名  就是IP的别称
+
+            端口号：location.port(默认隐藏的)
+                电脑给软件分配的端口号  0~65535 可以直接定位到当前使用网络的程序
+                小细节：常用软件有默认端口号，可以强制修改
+                        浏览器  8080
+                        http    80
+                        https   443
+
+            路径：location.pathname
+
+            查询字符串:location.search
+                ?name1=value1&name2=value2
+
+            锚点：location.hash
+         */
+
+        /* 
+            location 地址栏
+                属性：
+                方法：
+                    location.assign(url)
+                        在当前窗口跳转url
+                    location.replace(url)
+                        在当前窗口替换url
+                    location.reload()
+                        刷新窗口
+                    location.reload(true)
+                        不经过浏览器缓存强制从服务器重载
+         */
+
+
+    </script>
+</head>
+<body>
+    <!-- <button onclick="butClick();">打开窗口</button> -->
+
+    <!-- <button onclick="alert(history.length);">获取历史记录条数</button>
+    <button onclick="history.back();">back</button>
+    <button onclick="history.forward();">forward</button>
+    <button onclick="history.go();">go</button> -->
+
+</body>
+</html>.

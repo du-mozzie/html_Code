@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 400px;
+            height: 200px;
+            background-color: white;
+            border:  1px solid black;
+            margin: 100px auto;
+            text-align: center;
+            line-height: 200px;
+            font-size: 18px;
+        }
+
+    </style> 
+    <script>
+
+        function getStyle(node, cssStyle) {
+            return node.currenStyle ? node.currenStyle(cssStyle) : getComputedStyle(node)[cssStyle];
+        }
+
+        function randomColor() {
+            var colorStr = "rgba(" + parseInt(Math.random() * 256) + "," + parseInt(Math.random() * 256) + "," + parseInt(Math.random() * 256) + ",1)";
+            return colorStr;
+        }
+
+        window.onload = function(){
+            var oDiv = document.getElementById("div1");
+            //每一次字体变化的大小
+            var speed = 5;
+            //j计数
+            var count = 0;
+            setInterval(function() {
+                oDiv.style.color = randomColor();
+
+                //1、将字体上一次的大小取出
+                var iCur = parseInt(getStyle(oDiv, "fontSize"));
+                //2、将字体上一次的大小取出
+                oDiv.style.fontSize = iCur + speed + "px";
+                count++;
+                if (count % 6 == 0){
+                    speed *= -1;
+                }
+
+            }, 1000);
+        }
+
+    </script>
+</head>
+<body>
+    <div id = "div1">div文本</div>
+</body>
+</html>

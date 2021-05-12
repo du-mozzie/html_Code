@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+            #div1{
+                width: 208px;
+                height: 208px;
+                background: url(images/5.22/img1.jpg) no-repeat;
+                position: absolute;
+            }
+        </style>
+        <script>
+            window.onload = function(){
+                var oDiv = document.getElementById("div1");
+                document.onmousemove = function(ev){
+                    var e = ev || window.event;
+                    oDiv.style.left = e.clientX - 75 + "px";
+                    oDiv.style.top = e.clientY - 75 + "px";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id = "div1"></div>
+    </body>
+</html>

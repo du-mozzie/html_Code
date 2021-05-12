@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #msg{
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+        }
+
+    </style>
+
+    <script>
+
+        //装有敏感词
+        var arr = [/靠/ig, /tmd/ig, /nm/ig];
+
+        function btnClick()
+        {
+            var oTxt = document.getElementById("txt1");
+            var oMsg = document.getElementById("msg");
+            
+            var oValue = oTxt.value;
+            for(var i = 0; i < arr.length; i++)
+            {
+                oValue = oValue.replace(arr[i], "*");
+            }
+
+            oMsg.innerHTML = oValue;
+            oTxt.value = '';
+        }
+
+    </script>
+</head>
+<body>
+    <textarea name = "" id = "txt1" cols= "30" rows= "10" ></textarea>
+    <button onclick= "btnClick();" >发布</button>
+    <div id = "msg"></div>
+</body>
+</html>

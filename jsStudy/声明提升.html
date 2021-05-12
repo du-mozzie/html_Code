@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        /* 
+            内存分配，一次分配
+
+            预编译：所有代码运行之前，计算机将代码从头到尾看一遍。
+                将这个程序需要运行的空间一次性分配好。
+
+
+            函数也会声明提升
+
+            声明提升：在当前作用域，声明变量和函数，会直接提升在整个代码的前面运行。
+         */
+
+        alert(num); //undefined
+        var num = 10;
+        alert(num); //10
+
+        show();
+
+        function show()
+        {
+            document.write("hello world");
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

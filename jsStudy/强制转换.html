@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Booblean()类型转换:
+                1、number   非0即正
+                    alert(Boolean(120));
+                    alert(Boolean(3.14));
+                    alert(Boolean(0));
+                2、string   非空即正
+                    alert(Boolean("hello"));
+                    alert(Boolean(""));
+                3、特殊数据类型全都为false
+                    undefined   null    NaN
+                
+            Number()类型转换：只有全是数字才能转换为数字 ，其他都为NaN
+            parseInt():
+                1、取整
+                2、将别的进制转为十进制，必须传入字符串 用法：parseInt(string, 进制)
+            parseFloat()取浮点数
+        */
+
+        // var str = "1111";
+        // alert(parseInt(str, 2));
+        // alert(parseInt(3.14));
+
+        alert(Number(null));    //0
+        alert(Number(undefined));   //NaN
+
+        alert(Number(undefined) == NaN);    //flase
+        alert(null == undefined);   //true
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

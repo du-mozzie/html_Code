@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        /* #div1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border: 1px solid black;
+            padding: 8px;
+            margin: 20px;
+        } */
+
+        #div1{
+            margin: 30px;
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            position: relative;
+        }
+        #div2{
+            margin: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+        }
+
+    </style>
+    <script>
+        /* 
+            offsetWidth
+            offsetHeight
+
+            offsetLeft
+            offsetTop
+
+         */
+
+        //跨浏览器兼容
+        function getStyle(node, cssStyle) {
+            return node.curentStyle ? node.curentStyle[cssStyle] : getComputedStyle(node) [cssStyle];
+        }
+
+        window.onload = function() {
+            var oDiv = document.getElementById("div1");
+            // alert(getStyle(oDiv,"width"));
+            // alert(oDiv.offsetWidth);    //width + border + padding
+            var oDiv2 = document.getElementById("div2");
+            alert(getStyle(oDiv2, "left")); //auto
+
+            alert(oDiv2.offsetLeft);    //距离第一个有定位的元素左边距
+        }
+
+    </script>
+</head>
+<body>
+    <div id = "div1">
+        <div id = "div2"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            数组：
+                for循环
+                for...in
+                forEach
+                for...of
+
+            对象：
+                for...in
+
+            集合
+                set、map
+                for...of
+         */
+        var arr = [10, 20, 30, 40, 50];
+        for(var i = 0; i < arr.length; i++){
+            document.write("for循环：" + arr[i] + "," + i + "<br/>");
+        }
+
+        for(var i in arr){
+            document.write("for...in：" + arr[i] + "," + i + "<br/>");
+        }
+
+        arr.forEach(function(item, index){
+            document.write("forEach：" + item + "," + index + "<br/>");
+        })
+
+        for (var item of arr) {
+            //item是当前遍历到的元素
+            document.write("for...of：" + item + "<br/>");
+        }
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

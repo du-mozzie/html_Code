@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            /* 
+                严格模式：写在哪个作用域下，在哪个作用域下生效
+                    "use strict"
+
+                1、全局变量声明时，必须加var
+                2、函数内重名属性
+                3、arguments对象不允许动态改变
+                4、保留字
+             */
+            function show()
+            {
+                "use strict"
+                var num = 10;
+                alert(num);
+            }
+
+            show();
+            alert(num);
+
+        </script>
+    </head>
+<body>
+    
+</body>
+</html>

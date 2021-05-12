@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 150px;
+            height: 200px;
+            background: coral;
+            margin: auto;
+        }
+        #span{
+            width: 110px;
+            height: 30px;
+            font-size: 20px;
+            padding: 10px;
+            margin-left: 20px;
+        }
+        button{
+            display: block;
+            margin: 15px 0px 0px 55px;
+            color: white;
+            background: black;
+            text-align: center;  
+        }
+    </style>
+    <script>
+        /* 
+            window.onload = function(){
+                写在这里的代码，是整个页面加载完成以后才执行的(固定格式)
+            }
+         */
+        
+        //封装事件驱动函数
+        function $(id){
+           return document.getElementById(id); 
+        }
+        
+        //总秒数
+        var i = 0;
+        
+        //记录定时器返回值
+        var timer = null;
+        window.onload = function(){
+            //获取按钮
+            $('start').onclick = function(){
+                //开始按钮,设置定时器每秒+1
+                timer = setInterval(function(){
+                    i++;
+                    $("second").innerHTML = doubleNum(i % 60);
+                    $("minute").innerHTML = doubleNum(parseInt(i / 60) % 60);
+                    $("hour").innerHTML = doubleNum(parseInt(i / 3600));
+                }, 1000);
+            }
+
+            $("pause").onclick = function() {
+                clearInterval(timer);
+            }
+
+            $("reset").onclick = function() {
+                clearInterval(timer);
+                i = 0;
+                $("second").innerHTML = "00";
+                $("minute").innerHTML = "00";
+                $("hour").innerHTML = "00";
+            }
+
+            function doubleNum(n) {
+                if (n < 10) {
+                    return "0" + n;
+                } else {
+                    return n;
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div id='span'>
+        <span id= 'hour'>00</span>
+        <span>:</span>
+        <span id= 'minute'>00</span>
+        <span>:</span>
+        <span id= 'second'>00</span>
+        <br/>
+        </div>
+        <button id= "start">开始</button>
+        <button id= 'pause'>暂停</button>
+        <button id= 'reset'>复位</button>
+    </div>
+</body>
+</html>

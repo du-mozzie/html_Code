@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function elementsByClassName(node,classStr) {
+            //获取node这个节点下所有的子节点
+            var nodes = node.getElementsByTagName("*");
+            var arr = [];//存放符合条件的节点
+            //遍历节点
+            for(var i = 0; i < nodes.length; i++) {
+                if(nodes[i].className === classStr) {
+                    arr.push(nodes[i]);
+                }
+            }
+            return arr;
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

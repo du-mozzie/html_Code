@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            concat()
+            1、拷贝原数组，生成新数组
+            2、合并数组
+                格式：数组.concat(数组, 数据,...);
+                返回值：合并成的新数组；
+                就算传入的是数组，合并时会将数组拆开在传入
+
+         */
+        // var arr1 = [10, 20, 30];
+        // var arr2 = [40, 50, 60];
+        // var newArr = arr1.concat(arr2, "hello", true);
+        // alert(newArr);
+        // alert(newArr.length);
+        // alert(arr1);
+
+        /* 
+            slice()
+                格式：数组.slice(start, end);   左边闭区间，右边开区间
+                功能：可以基于当前数组获取指定区域元素(start, end),提取出新的数组
+                返回值：生成新的数组，原数组不变
+         */
+        // var arr = [10, 20, 30, 40, 50, 60];
+        // alert(arr.slice(1,3));
+
+        /* 
+            splice()
+                格式：数组.splice(start, length, 数据1, 数据2, ...);
+                参数：
+                    start   截取开始的位置
+                    length  截取长度
+                    第三个参数开始：在start，插入元素
+
+         */
+
+        // var arr = [10, 20, 30, 40, 50, 60];
+        /* 
+        增加
+        arr.splice(2, 0, "hello", "world");
+        alert(arr); 
+        */
+
+        /* 
+        删除
+        arr.splice(2, 2);
+        alert(arr);
+        */
+
+        /* 
+        修改(先删除，在增加)
+        arr.splice(2, 1);
+        arr.splice(2, 0, "hello world");
+        alert(arr); 
+        */
+
+        /* 
+            join()
+                格式：数组.join(字符串);
+                功能：将数组中的元素，用传入的拼接符，拼接成新的字符串
+                返回值：拼接的字符串
+            alert(arr.join("--"));
+
+         */
+
+        /* 
+            reverse()   逆序
+             var arr = [true, "hello", 100];
+            arr.reverse();
+            alert(arr);
+         */
+
+        /* 
+            数组排序
+            sort
+                格式：数组.sort()
+                参数：一个函数，代表要怎么去排序(固定用法)
+         */
+
+        var arr = [15, 5, 61, 10, 20, 13];
+        
+        //按照数值从小到大排序，从大到小value2-value1
+        arr.sort(function(value1, value2)
+        {
+            return value1 - value2;
+        }) 
+        alert(arr);
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

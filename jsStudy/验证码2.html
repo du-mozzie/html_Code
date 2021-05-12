@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{
+		margin: 0;padding: 0;list-style: none;
+	}
+	body{font-size: 24px;}
+	ul{
+		width: 756px;
+		margin: 100px auto;
+		list-style: none;
+		border: 1px solid #000;
+		overflow: hidden;
+		text-align: center;
+		padding: 10px;
+		clear: both;
+	}
+	ul li{
+		float: left;
+		width: 250px;
+		height: 100px;
+		border: 1px solid #00f;
+		text-align: center;
+	}
+	input{
+		height: 35px;
+		vertical-align: middle;
+	}
+	span{
+		display: inline-block;
+		vertical-align: middle;
+	}
+	#wz{cursor: pointer;}
+/*	cursor定义鼠标制作的形状*/
+	</style>
+	<script language="javascript">
+	window.onload=function(){
+		var wz=document.getElementById("wz");
+		var num;
+		var zifu="";
+		var a=['a','b','c','d','A','B','C','D','1','2','3','4'];
+		wz.onclick=function(){
+			var yzm="";
+			for(var i=0;i<4;i++){
+				num=Math.floor(Math.random()*a.length);
+				zifu=a[num];
+				yzm=yzm+zifu;
+			}
+			var oCode=document.getElementById("code");
+			oCode.innerHTML=yzm;
+		}
+	}
+	</script>
+</head>
+
+<body>
+<div>
+<ul>
+	<li>验证码</li>
+	<li id="yzm"><input type="text" size="10"/>&nbsp;
+	<span id="code">
+		1234
+	</span>
+	</li>
+	<li>
+		<input type="button" value="看不清，换一张" id="wz"/>
+	</li>
+</ul>
+</div>
+</body>
+</html>

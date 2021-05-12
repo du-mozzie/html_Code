@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #all {
+            width: 203px;
+            height: 200px;
+            background-color: lightblue;
+            border: 1px solid black;
+            text-align: center;
+            margin: auto;
+        }
+
+        #all input {
+            width: 200px;
+            height: 30px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        #all span {
+            font-size: 14px;
+            color: red;
+        }
+    </style>
+
+    <script>
+        /* 
+            时间驱动函数 onclick    鼠标点击
+                        onblur      失去焦点
+        */
+
+        //判断首字符是否为字母
+        function isABC(charStr) {
+            if (charStr >= "a" && charStr <= "z" || charStr >= "A" && charStr <= "Z") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        //判断是否有不符合要求的字符
+        function illegalCharacter(charStr) {
+            if (charStr >= "a" && charStr <= "z" || charStr >= "A" && charStr <= "Z" || charStr >= 0 && charStr <= 9 || charStr == "_") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function func() {
+            var oUsername = document.getElementById("username");
+            var oUsernameSpan = document.getElementById("username_span");
+
+            //1、拿到输入框的内容
+            var oValue = oUsername.value;
+
+            //2、判断
+            //<1> 用户名长度是否符合要求
+            if (oValue.length < 6 || oValue.length > 18) {
+                oUsernameSpan.innerHTML = "❗长度应该为6~18个字符";
+            } else if (!isABC(oValue[0])) {
+                oUsernameSpan.innerHTML = "❗首字符必须以字母开头";
+            } else if (!illegalCharacter(oValue[0, oValue.length])) {
+
+                var isYes = true;
+
+                for(var i = 0; i < oValue.length; i++) {
+                    if(!illegalCharacter(oValue[i])) {
+                        isYes = false;
+                    }
+                }
+                if(isYes == false) {
+                    oUsernameSpan.innerHTML = "❗账号必须符号以数字、字母、下划线组成";
+                } else {
+                oUsernameSpan.innerHTML = "账号符合要求，请输入密码";
+            }
+                
+            } 
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="all">
+        <input id="username" type="text" placeholder="用户名" onblur="func();" />
+        <span id="username_span">6~18个字符，可使用字母、数字、下划线，需以字母开头</span>
+        <input type="text" placeholder="密码" />
+    </div>
+</body>
+
+</html>

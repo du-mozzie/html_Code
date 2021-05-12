@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            display: block;
+            font-size: 40px;
+            margin: 100px;
+            width: 130px;
+            text-decoration: none;
+        }
+        #msg{
+            width: 600px;
+            height: 150px;
+            background-color: gray;
+            color: white;
+            display: none;
+            position: absolute;
+        }
+    </style>
+    <script>
+        /* 
+            事件类型：
+                mouseover
+                    让提示框显示
+                mouseout
+                    让提示框隐藏
+                mousemove
+                    让提示框跟随鼠标移动
+                    clientX  clientY    原点位置：可视窗口左上角为原点
+
+         */
+         //arr数组存储a标签下对应的信息
+        var arr = ["唐太宗李世民（598年1月23日－649年7月10日），唐朝第二任皇帝。出自陇西成纪，626年至649年在位。父亲是唐高祖李渊，母亲是太穆皇后窦氏。窦皇后有四个儿子，一个女儿，按长幼顺序为：李建成、平阳昭公主、李世民、李玄霸、李元吉。九姓铁勒、西域诸国国王、吐火罗叶护称唐太宗为“天可汗”。","唐高宗李治（628年7月21日－683年12月27日），小名雉奴，字为善，唐朝第三任皇帝，唐太宗李世民第九子、嫡三子，母文德皇后，亦和胞妹晋阳公主一样，唯二被唐太宗亲自抚养长大的亲生子女。唐代的版图以高宗时为最大，领土面积逾1200万平方公里，东起朝鲜半岛大同江以北，西临咸海，北包贝加尔湖，南至越南横山。在位三十四年，于弘道元年（683年）崩于洛阳紫微宫贞观殿，终年五十五岁，葬于唐乾陵，庙号高宗，谥号天皇大帝。","武曌(624年2月17日－705年12月16日），中国历史上因执掌君权而得到正史唯一承认的女性皇帝。武氏是唐高宗的皇后、武周开国皇帝，当代称则天顺圣皇后，或武后（神龙革命后成为太上皇，遗诏退称皇后），后代通称武则天。武氏为并州文水县人，十四岁入宫为唐太宗才人，十二年不得迁。唐高宗时复为昭仪，谋废得到唐太宗托付于重臣褚遂良的“佳儿佳妇”王皇后与淑妃，得立为皇后（655年－683年）。","唐玄宗李隆基（公元685年9月8日－762年5月3日），685年出生在神都洛阳，唐朝第九代皇帝（712年－756年在位）；统治唐朝长达44年，是唐朝在位最久的皇帝，唐睿宗第三子，母窦德妃。庙号玄宗，谥号至道大圣大明孝皇帝。宋代避圣祖赵玄朗讳，清代避讳康熙帝“玄烨”，皆称为唐明皇，另有尊号“开元圣文神武皇帝”。性格英明果断，多才多艺，知晓音律，擅长书法，仪表雄伟俊丽。"];
+
+        window.onload = function(){
+            var aAs = document.getElementsByTagName("a");
+            var oDiv = document.getElementById("msg");
+
+            for(var i = 0; i < aAs.length; i++){
+                aAs[i].index = i;
+                aAs[i].onmouseover = function(){
+                    oDiv.innerHTML = arr[this.index];
+                    oDiv.style.display = "block";
+                }
+
+                aAs[i].onmouseout = function(){
+                    oDiv.style.display = "none";
+                }
+
+                //鼠标移动事件
+                aAs[i].onmousemove = function(ev){
+                    var e = ev || window.event;
+                    oDiv.style.left = e.clientx + 5 + "px";
+                    oDiv.style.top = e.clientY + 5 + "px";
+                }
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <a href="#">唐太宗</a>
+    <a href="#">唐高宗</a>
+    <a href="#">武则天</a>
+    <a href="#">唐玄宗</a>
+    <div id = "msg"></div>
+</body>
+</html>

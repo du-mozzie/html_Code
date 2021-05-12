@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #all{
+            width: 170px;
+            height: 200px;
+            margin: auto;
+            background: cyan;
+        }
+        #show{
+            padding: 20px;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+        button{
+            width: 50px;
+            height: 50px;
+            display: block;
+            margin: -15px 0px 25px 55px;
+            color: white;
+            background: orange;
+            text-align: center;  
+        }
+    </style>
+
+    <script>
+        //设置定时器
+        var timer = null;
+        //定义一个Boolean类型变量，设置当前运行状态。
+        var isRunning = false;
+        //接收秒数
+        var i = 0;
+        
+        //window.onload里面的内容最后运行，当页面布局完后才会运行
+        window.onload = function() {
+
+            //设置运行按钮功能
+            document.getElementById("Run").onclick = function() {
+            if (!isRunning) {
+                timer = setInterval(function(){
+                i++;
+                document.getElementById("Run").innerHTML = "开始";
+                document.getElementById("second").innerHTML = isNum(i % 60);
+                document.getElementById("minute").innerHTML = isNum(parseInt(i / 60) % 60);
+                document.getElementById("hour").innerHTML =isNum( parseInt(i / 3600));
+                isRunning = true;
+                }, 1000);
+            } else {
+                clearInterval(timer);
+                isRunning = false;
+                document.getElementById("Run").innerHTML = "暂停";
+                }
+            }
+
+            //设置复位按钮功能
+            document.getElementById("reset").onclick = function() {
+                clearInterval(timer);
+                i = 0;
+                isRunning = false;
+                document.getElementById("Run").innerHTML = "开始";
+                document.getElementById("second").innerHTML = "00";
+                document.getElementById("minute").innerHTML = "00";
+                document.getElementById("hour").innerHTML = "00";
+            }
+
+            function isNum(n) {
+                if (n < 10) {
+                    return "0" + n;
+                }else {
+                    return n;
+                }
+            }
+
+        }
+
+    </script>
+
+</head>
+<body>
+    <div id="all">
+        <!-- 时间显示 -->
+        <div id="show">
+        <span id="hour">00</span>
+        <span>:</span>
+        <span id="minute">00</span>
+        <span>:</span>
+        <span id="second">00</span>
+        </div>
+        <br/>
+        <!-- 按钮设置 -->
+        <button id="Run">开始</button>
+        <button id="reset">复位</button>
+    </div>
+</body>
+</html>

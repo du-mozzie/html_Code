@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            DOM:    document object model
+                节点类型：
+                    元素节点    <div><div>
+                    属性节点    id = "div1"
+                    文本节点    div文本
+
+
+            元素节点的获取
+                document.getElementById(id)
+                    功能：通过id获取符合条件的元素，(id必须是唯一的)
+                    返回值：就是符合条件的一个节点
+
+                node.getElementsByTagName(标签名)
+                    功能：通过标签名获取符合条件的元素节点
+                    返回值：伪数组/类数组
+
+                node.getElemetsByClassName(class名字)   IE8以下不兼容
+                    功能：通过class名字获取符合条件的元素节点
+
+                document.getElementsByName(name属性的值)
+                    功能：通过name属性的值获取符合条件的元素节点
+                    一般使用在表单元素上
+
+
+
+                **  参数：字符串    CSS选择器格式字符串
+                        id(#id)     class(.class)   某个名称("[name=hello]")
+                document.querySelector()
+                    返回值：一个元素节点，找到符合条件的第一个元素节点
+
+                document.querySelectorAll()
+                    返回值：一个伪数组
+                
+
+                **只能访问标签行间的css样式
+                行间属性访问document.getElementById(id).属性名
+                            document.getElementById(id).id
+                            document.getElementById(id).title
+                            document.getElementById(id).className
+                如果css样式有-把-去掉，第二个单词首字母大写
+                            document.getElementById(id).style.backgroundColor   背景颜色
+                赋值直接用 = 
+                            document.getElementById(id).属性名 = 值 
+
+                
+         */
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

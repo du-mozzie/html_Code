@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            递归：
+                方法：
+                1、首先找到临界值，即无需计算，获得的值
+                2、找这一次和上一次的关系
+                3、假设当前函数已经可以调用，调用自身计算上一次
+            sum(100) = sum(99private static int a = 10;) + 100;
+            sum(n) = sum(n - 1) + n;
+         */
+
+        //  function sum(n)
+        //  {
+        //      if (n == 1)
+        //      {
+        //          return 1;
+        //      }
+        //      return sum(n - 1) + n;
+        //  }
+        
+        // /* 斐波那契数列
+        //     rabbit(4) = rabbit(3) + rabbit(1);
+        //     rabbit(n) = rabbit(n-1) + rabbit(n-3);
+        
+        //  */
+        // function rabbit(n)
+        // {
+        //     if (n < 4)
+        //     {
+        //         return 1;
+        //     } else
+        //     {
+        //         return rabbit(n-1) + rabbit(n-3);;
+        //     }
+        // }
+
+        // alert(rabbit(6));
+
+        /* 
+            猴子吃桃
+            quantity(10) / 2 - 1 = quantity(9);
+            quantity(10) = (quantity(9) + 1) * 2;
+            quantity(n) = (quantity(n-1) + 1) * 2;
+
+
+         */
+
+            function quantity(n)
+            {
+                if(n == 1)
+                {
+                    return 1;
+                } else
+                {
+                    return (quantity(n-1) + 1) * 2;
+                }
+            }
+
+            alert(quantity(5));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

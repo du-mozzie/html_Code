@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 100px;
+            background-color: red;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById("div1");
+            setInterval(function () {
+                //offsetWidth获取width + border
+                // oDiv.style.width = oDiv.offsetWidth - 1 + "px";
+
+                //获取当前值
+                var iCur = parseInt(getStyle(oDiv, "width"));
+                oDiv.style.width = iCur - 1 + "px";
+            }, 30);
+        }
+
+        //获取当前有效样式浏览器兼容的写法
+        function getStyle(node, cssStr) {
+            return node.currentStyle ? node.currentStyle[cssStr] : getComputedStyle(node)[cssStr];
+        }
+    </script>
+</head>
+
+<body>
+    <div id="div1"></div>
+</body>
+
+</html>

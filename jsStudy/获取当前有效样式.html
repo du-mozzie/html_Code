@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            参数：标签样式
+            elem.currenStyle()  IE兼容
+                oDiv.currenStyle("height")
+            getComputedStyle(oDiv)["height"]  火狐，谷歌
+                
+        */
+
+        /* 
+            跨浏览器兼容
+        */
+
+        oDiv = document.getElementById("div1");
+
+        function getStyle (node, cssStyle) {
+            return node.currenStyle ? node.currenStyle(cssStyle) : getComputedStyle(node)[cssStyle];
+        }
+    </script>
+</head>
+<body>
+    <div id = "div1" style="width: 200px; background-color: red;" class="box"></div>
+</body>
+</html>

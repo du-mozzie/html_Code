@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+            #div1{
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                position: absolute;
+                left: 0px;
+                top: 100px;
+            }
+        </style>
+        <script>
+            /* 
+                动画  图像
+                原理：能够识别的最小的时间间隔是18帧。
+                动画：只需要让这个动画的切换时间间隔大于18帧，一般情况下电影院放映的电影是24帧
+            */
+
+            /* 
+                简单运动,让一个div从左向右运动
+            */
+
+            /* 
+                运动框架:
+                    1、每次启动定时器之前，先将上一次定时器关闭
+                    2、if...else 将运动和停止分开
+            */
+            window.onload = function(){
+                var oBtn = document.getElementById("btn1");
+                var oDiv = document.getElementById("div1");
+
+                var speed = 5;
+                var timer = null;
+                oBtn.onclick = function(){
+                    clearInterval(timer);
+                    timer = setInterval(function(){
+                        if(oDiv.offsetLeft >= 500){
+                            clearInterval(timer);
+                        }else{
+                            oDiv.style.left = oDiv.offsetLeft + speed + "px";
+                        }
+                    },30);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button id = "btn1">开始运动</button>
+        <div id = "div1"></div>
+    </body>
+</html>

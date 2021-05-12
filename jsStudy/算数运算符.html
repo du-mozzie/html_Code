@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            自动类型转换
+        */
+
+        // alert(10 - null);
+        // alert(10 - undefined);
+        // alert(10 - NaN);
+
+        /* 
+            一元运算符
+            a++;    ++后置，先取a的值作为a++的表达式，然后再+1
+            ++a;    ++前置，先+1，然后再取a的值作为++a表达式的值
+            a--;
+            --a; 
+        */
+        
+        var a = 10;
+        // alert(a++ + ++a + a + ++a + a++ + a);
+        alert(a-- - --a - a - --a - a-- - a);
+
+
+    </script>
+</head> 
+<body>
+    
+</body>
+</html>
